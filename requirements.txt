@@ -1,2 +1,2 @@
 requests 
-zulip-api
+zulip
