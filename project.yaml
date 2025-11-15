@@ -1,0 +1,33 @@
+name: nvd-alerter-app
+functions:
+- name: nvd-poller
+  runtime: python
+  source_dir: nvd-poller
+  scheduled_jobs:
+  - name: hourly-nvd-check
+    schedule: "0 * * * *" 
+  envs:
+  - key: ZULIP_EMAIL
+    scope: RUN_TIME
+    type: SECRET
+  - key: ZULIP_API_KEY
+    scope: RUN_TIME
+    type: SECRET
+  - key: ZULIP_SITE 
+    scope: RUN_TIME
+    value: "https://zoo.lark.cx"
+  - key: ZULIP_STREAM # e.g., "CVEs"
+    scope: RUN_TIME
+    value: "News"
+  - key: ZULIP_TOPIC # e.g., "NVD Alerts"
+    scope: RUN_TIME
+    value: "NVD Feed"
+  - key: KEYWORDS 
+    scope: RUN_TIME
+    value: "CISCO,WINDOWS,REDHAT,APPLE"
+  - key: HOURS
+    scope: RUN_TIME
+    value: "1"
+  - key: SEVERITY
+    scope: RUN_TIME
+    value: "HIGH"
