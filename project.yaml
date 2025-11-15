@@ -2,6 +2,7 @@ name: nvd-alerter-app
 functions:
 - name: nvd-poller
   runtime: python
+  runtime_version: "3.11"
   source_dir: nvd-poller
   scheduled_jobs:
   - name: hourly-nvd-check
